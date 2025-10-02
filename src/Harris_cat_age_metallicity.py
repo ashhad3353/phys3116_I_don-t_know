@@ -1,7 +1,7 @@
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
-harris_p1=pd.read_csv("data/HarrisPartI.csv"):
+harris_p1=pd.read_csv("data/HarrisPartI.csv")
 harris_p2=pd.read_csv("data/HarrisPartIII.csv")
 harris_cat=pd.merge(harris_p1,harris_p2,on='ID',how='inner')# Merging the 2 parts of the catalog into 1 dataframe by combining all of the columns into 1 set 
 vbd=pd.read_csv("data/vandenBerg_table2.csv")
@@ -18,4 +18,8 @@ plt.ylabel("Radial Velocity (km/s)")
 plt.title("Radial Velocity vs Metallicity [Fe/H] of NGCs")
 plt.savefig("results/RadialVelocity_vs_Metallicity.png")
 plt.show()
+
+# Plot L vs v_LSR to show rotation patterns/ non-rotating clusters 
+# Plot sig_v vs r_h or rho_theta to show dispersion patterns. CLusters lying well of the main sequence of points might be interesting 
+# Plot r_h vs c, large r_h and low c might be indicate accreted clusters
 
