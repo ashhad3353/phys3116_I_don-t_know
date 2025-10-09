@@ -12,14 +12,22 @@ vbd["ID"]=vbd["ID"].apply(add_NGC)# Adding "NGC " to the front of each value in 
 harris_cat_merged=pd.merge(harris_cat,vbd,on='ID',how='inner')# Merging the Harris catalog with VandenBerg catalog into 1 dataframe by combining all matching columns into 1 set.
 harris_cat_merged.to_csv("results/Harris_VandenBerg_merged.csv",index=False)# Saving the merged dataframe to a csv file in the results folder
 #Plotting the radial velocity from Harris catalog vs the metallicity from VandenBerg catalog
-plt.scatter(harris_cat_merged["FeH"],harris_cat_merged["v_LSR"],label="Harris Catalog")
-plt.xlabel("Metallicity [Fe/H]")
-plt.ylabel("Radial Velocity (km/s)")
-plt.title("Radial Velocity vs Metallicity [Fe/H] of NGCs")
-plt.savefig("results/RadialVelocity_vs_Metallicity.png")
+
+plt.scatter(harris_cat_merged["L"],harris_cat_merged["v_LSR"], label="Harris Catalog")
+plt.xlabel("Galactic Longitude (degrees)")
+plt.ylabel("Line of sight velocity(km/s)")
+plt.title('Galactic Longitude vs Line of sight velocity')
+plt.savefig('Galactic Longitude vs Line of Sight velocity.png')
 plt.show()
 
-# Plot L vs v_LSR to show rotation patterns/ non-rotating clusters 
-# Plot sig_v vs r_h or rho_theta to show dispersion patterns. CLusters lying well of the main sequence of points might be interesting 
-# Plot r_h vs c, large r_h and low c might be indicate accreted clusters
+
+plt.scatter(harris_cat_merged["r_h"],harris_cat_merged["c"], label='Harris catalog')
+plt.xlabel('half light radius (pc)')
+plt.ylabel('concentration')
+plt.savefig('half light radius vs concentration.png')
+plt.show()
+
+
+
+
 
