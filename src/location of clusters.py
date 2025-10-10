@@ -5,7 +5,7 @@
 import pandas as pd
 import matplotlib.pyplot as plt
 import numpy as np
-from mpl_toolkits.mplot3d import Axes3D. #package i found for 3-D plotting
+from mpl_toolkits.mplot3d import Axes3D #package i found for 3-D plotting
 
 H1 = pd.read_csv("data/HarrisPartI.csv")
 list(H1.columns)
